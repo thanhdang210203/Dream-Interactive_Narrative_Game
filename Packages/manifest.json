@@ -1,9 +1,13 @@
 {
   "dependencies": {
-    "com.antonysze.custom-play-button": "file:C:/Users/thanh/Downloads/unity-custom-play-button-1.0",
-    "com.marijnzwemmer.unity-toolbar-extender": "file:C:/Users/thanh/Downloads/unity-toolbar-extender-1.4.3/unity-toolbar-extender-1.4.3",
+    "com.antonysze.custom-play-button": "https://github.com/antonysze/unity-custom-play-button.git",
+    "com.marijnzwemmer.unity-toolbar-extender": "https://github.com/marijnz/unity-toolbar-extender.git",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.15.18",
+    "com.unity.feature.characters-animation": "1.0.0",
+    "com.unity.feature.cinematic": "1.0.0",
+    "com.unity.feature.gameplay-storytelling": "1.0.0",
+    "com.unity.feature.worldbuilding": "1.0.1",
     "com.unity.ide.rider": "3.0.28",
     "com.unity.ide.visualstudio": "2.0.15",
     "com.unity.ide.vscode": "1.2.5",
