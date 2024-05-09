@@ -15,12 +15,6 @@ public class ClickToMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
     }
-
-    private void Update()
-    {
-        _animator.SetFloat("Speed", agent.velocity.magnitude);
-    }
-
     private void OnEnable()
     {
         mouseClickAction.Enable();
