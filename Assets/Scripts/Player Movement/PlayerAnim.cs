@@ -27,7 +27,8 @@ public class PlayerAnim : MonoBehaviour
         {
             _playerMovement.enabled = false;
             _clickToMove.enabled = true;
-            ClickToMoveAnim();
+            _animator.SetTrigger("ClickToMove");
+            //ClickToMoveAnim();
         }
         else
         {

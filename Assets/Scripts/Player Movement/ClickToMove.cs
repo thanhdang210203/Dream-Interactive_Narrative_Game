@@ -26,6 +26,12 @@ public class ClickToMove : MonoBehaviour
         mouseClickAction.Disable();
         mouseClickAction.performed -= OnMouseClick;
     }
+    
+    private void Update()
+    {
+        _animator.SetFloat("Speed", agent.velocity.magnitude);
+    }
+
 
     private void OnMouseClick(InputAction.CallbackContext context)
     {
