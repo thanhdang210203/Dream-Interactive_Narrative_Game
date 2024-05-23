@@ -1,11 +1,10 @@
+using System;
 using UnityEngine;
 
 public class ItemInteraction : MonoBehaviour
 {
     // The radius of the item's interaction area
-    [SerializeField] private float interactionRadius = 1f;
-    // The player's layer
-    [SerializeField] private LayerMask playerLayer;
+    public float interactionRadius;
 
     private void Start()
     {
@@ -18,10 +17,16 @@ public class ItemInteraction : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object that entered the trigger is on the player's layer
-        if (playerLayer == (playerLayer | (1 << other.gameObject.layer)))
+        if (other.CompareTag("Player"))
         {
             // The player has entered the item's interaction area
             Debug.Log("Player entered the item's interaction area");
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, interactionRadius);
     }
 }
