@@ -11,7 +11,7 @@ public class ItemInteraction : MonoBehaviour
         // Add a sphere collider to represent the item's interaction area
         SphereCollider sphereCollider = gameObject.AddComponent<SphereCollider>();
         sphereCollider.radius = interactionRadius;
-        sphereCollider.isTrigger = true;
+        sphereCollider.isTrigger = true; // This line sets the SphereCollider to isTrigger
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,7 +20,7 @@ public class ItemInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // The player has entered the item's interaction area
-            Debug.Log("Player entered the item's interaction area");
+            Debug.Log("Player entered the " + this.name+"'s interaction area");
         }
     }
 

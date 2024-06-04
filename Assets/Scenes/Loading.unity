@@ -435,6 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1257862074}
+  - component: {fileID: 1257862075}
   m_Layer: 0
   m_Name: AudioSources
   m_TagString: Untagged
@@ -459,6 +460,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1257862075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257862073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950b795255ec0974d87bf63b8faf65de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SFX: {fileID: 0}
+  m_BackgroundMusic: {fileID: 0}
+  m_MinigameMusic: {fileID: 0}
+  soundEffects: []
+  backgroundMusic: []
+  crossfadeTime: 3
+  shouldStartCrossfade: 0
+  canPlayMusic: 0
 --- !u!1 &1271891856
 GameObject:
   m_ObjectHideFlags: 0
