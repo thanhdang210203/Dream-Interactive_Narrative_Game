@@ -7,12 +7,12 @@ using UnityEngine.InputSystem;
 public class ClickToMove : MonoBehaviour
 {
     [SerializeField] private InputAction mouseClickAction;
-    private NavMeshAgent agent;
+    private NavMeshAgent _agent;
     private Animator _animator;
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
     }
     private void OnEnable()
@@ -29,7 +29,7 @@ public class ClickToMove : MonoBehaviour
     
     private void Update()
     {
-        _animator.SetFloat("Speed", agent.velocity.magnitude);
+        _animator.SetFloat("Speed", _agent.velocity.magnitude);
     }
 
 
@@ -42,19 +42,19 @@ public class ClickToMove : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                agent.SetDestination(hit.point);
+                _agent.SetDestination(hit.point);
             }
         }
     }
 
     private void OnDrawGizmos()
     {
-        if (agent != null && agent.hasPath)
+        if (_agent != null && _agent.hasPath)
         {
             Gizmos.color = Color.red;
-            for (int i = 0; i < agent.path.corners.Length - 1; i++)
+            for (int i = 0; i < _agent.path.corners.Length - 1; i++)
             {
-                Gizmos.DrawLine(agent.path.corners[i], agent.path.corners[i + 1]);
+                Gizmos.DrawLine(_agent.path.corners[i], _agent.path.corners[i + 1]);
             }
         }
     }

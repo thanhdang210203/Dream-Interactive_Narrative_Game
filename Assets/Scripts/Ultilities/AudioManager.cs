@@ -16,11 +16,12 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource m_SFX;
     [SerializeField] private AudioSource m_BackgroundMusic;
-    [SerializeField] private AudioSource m_MinigameMusic;
+    [SerializeField] private AudioSource m_UIMusic;
     
 
     [Header("Sound Effect Clips")]
     public AudioClip[] soundEffects;
+    public AudioClip[] UISoundEffects;
 
     [Header("Background Music Clips")]
     public AudioClip[] backgroundMusic;
@@ -47,16 +48,10 @@ public class AudioManager : MonoBehaviour
         m_SFX.volume = PlayerPrefs.GetInt("SFXAudio", 1) == 1 ? 1 : 0;
         m_BackgroundMusic.volume = PlayerPrefs.GetInt("BackgroundMusic", 1) == 1 ? 1 : 0;
         SceneManager.sceneLoaded += OnSceneLoaded;
-        StartCoroutine(PlayAndCrossfadeMusicRandomly());
     }
 
     private void Update()
     {
-        if (shouldStartCrossfade)
-        {
-            StartCoroutine(CrossfadeMusic(GetNextTrackIndex()));
-            shouldStartCrossfade = false;
-        }
     }
 
     private void OnDestroy()
@@ -87,12 +82,6 @@ public class AudioManager : MonoBehaviour
             // Log the name of the current background music and the scene it is playing at
             Debug.Log("Now playing: " + m_BackgroundMusic.clip.name + " at scene: " + SceneManager.GetActiveScene().name);
         }
-        // If the loaded scene is the game scene, do not stop the music
-        /*else if (scene.name != "GameScene") // replace "GameScene" with the actual name of your game scene
-        { 
-            // Start crossfading to a new song
-            StartCoroutine(PlayAndCrossfadeMusicRandomly());
-        }*/
     }
     
     public void PlaySoundEffect(int index)
@@ -102,6 +91,20 @@ public class AudioManager : MonoBehaviour
         {
             // Play the sound effect at the given index
             m_SFX.PlayOneShot(soundEffects[index]);
+        }
+        else
+        {
+            Debug.Log("Invalid sound effect index: " + index);
+        }
+    }
+    
+    public void PlayUISoundEffect(int index)
+    {
+        // Check if the index is within the bounds of the array
+        if (index >= 0 && index < UISoundEffects.Length)
+        {
+            // Play the sound effect at the given index
+            m_SFX.PlayOneShot(UISoundEffects[index]);
         }
         else
         {
@@ -122,73 +125,18 @@ public class AudioManager : MonoBehaviour
 
         m_BackgroundMusic.volume = 1;
     }
-    private IEnumerator PlayAndCrossfadeMusicRandomly()
-    {
-        while (true)
-        {
-            // Select a random track that is not the same as the current track
-            int nextTrackIndex = GetNextTrackIndex();
-
-            // Start crossfading to the new track
-            yield return StartCoroutine(CrossfadeMusic(nextTrackIndex));
-
-            // Play the selected track
-            m_BackgroundMusic.clip = backgroundMusic[nextTrackIndex];
-            m_BackgroundMusic.Play();
-
-            // Gradually increase the volume from 0 to 1
-            StartCoroutine(IncreaseVolumeGradually(crossfadeTime));
-
-            // Log the name of the current background music and the scene it is playing at
-            Debug.Log("Now playing: " + m_BackgroundMusic.clip.name + " at scene: " + SceneManager.GetActiveScene().name);
-
-            // Wait for the track to finish, then start the crossfade
-            yield return new WaitForSeconds(m_BackgroundMusic.clip.length - crossfadeTime);
-
-            // Update the current track index
-            currentTrackIndex = nextTrackIndex;
-        }
-    }
-
-    private int GetNextTrackIndex()
-    {
-        int nextTrackIndex;
-        do
-        {
-            nextTrackIndex = UnityEngine.Random.Range(0, backgroundMusic.Length);
-        } while (nextTrackIndex == currentTrackIndex);
-
-        return nextTrackIndex;
-    }
-
-    private IEnumerator CrossfadeMusic(int nextTrackIndex)
-    {
-        float timer = 0;
-
-        // Get the current volume
-        float startVolume = m_BackgroundMusic.volume;
-
-        while (timer < crossfadeTime)
-        {
-            // Update the timer
-            timer += Time.deltaTime;
-
-            // Calculate the progress of the crossfade
-            float progress = timer / crossfadeTime;
-
-            // Interpolate the volume of the current and next tracks
-            m_BackgroundMusic.volume = Mathf.Lerp(startVolume, 0, progress);
-
-            yield return null;
-        }
-
-        // Ensure the volume of the current track is 0
-        m_BackgroundMusic.volume = 0;
-    }
     
-    public void PlayBackgroundMusic()
+    public void PlayBackgroundMusic(int index)
     {
-        // Only play the background music if the storyboard music is not playing
-            m_BackgroundMusic.Play();
+        // Check if the index is within the bounds of the array
+        if (index >= 0 && index < backgroundMusic.Length)
+        {
+            // Play the sound effect at the given index
+            m_SFX.PlayOneShot(backgroundMusic[index]);
+        }
+        else
+        {
+            Debug.Log("Invalid sound effect index: " + index);
+        }
     }
 }
