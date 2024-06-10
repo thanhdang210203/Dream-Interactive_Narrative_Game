@@ -5398,7 +5398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a160dd7228b1d349a88e450551962fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRadius: 2.26
+  interactionRadius: 2.34
 --- !u!208 &7282939194109680581
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -6645,7 +6645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a160dd7228b1d349a88e450551962fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRadius: 1.21
+  interactionRadius: 1.73
 --- !u!208 &8217012025097717767
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -6859,8 +6859,8 @@ MonoBehaviour:
   _clickToMove: {fileID: 0}
   _agent: {fileID: 0}
   clickToMoveMechanic: 1
---- !u!136 &8517194737648983846
-CapsuleCollider:
+--- !u!65 &8517194737648983846
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6869,10 +6869,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.7
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.02, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 1.7, z: 0.6}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &8528834387295189679
 Transform:
   m_ObjectHideFlags: 0
