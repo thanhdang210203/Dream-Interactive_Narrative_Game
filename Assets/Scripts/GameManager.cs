@@ -7,9 +7,9 @@ using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadscreenMange : MonoBehaviour
+public class GameManger : MonoBehaviour
 {
-    public static LoadscreenMange instance;
+    public static GameManger instance;
     public GameObject loadingScreen;
     public ProgressBar bar;
     public TextMeshProUGUI progressText;
