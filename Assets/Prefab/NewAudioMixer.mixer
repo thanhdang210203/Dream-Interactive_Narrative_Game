@@ -67,8 +67,12 @@ AudioMixerController:
     name: Background
   - guid: 2c8a02712236b1144b99aee8fbdceaee
     name: Master
+  - guid: 0374d85ce6eda0a4ab277ef56132f1c3
+    name: MyExposedParam 1
   - guid: c19acfa5e2593e047a9fd679110b446d
     name: SFX
+  - guid: cc52be36ed9f2d34b96b0b229240a92e
+    name: MyExposedParam
   m_AudioMixerGroupViews:
   - guids:
     - a4ed1d369c5fa274e93d971b11935d15
