@@ -98,6 +98,12 @@ public class AudioManager : MonoBehaviour
         }
     }
     
+    public bool CanPlayMusic
+    {
+        get => canPlayMusic;
+        set => canPlayMusic = value;
+    }
+    
     public void PlayUISoundEffect(int index)
     {
         // Check if the index is within the bounds of the array

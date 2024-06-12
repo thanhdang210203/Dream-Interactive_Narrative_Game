@@ -32,6 +32,10 @@ public class GameManger : MonoBehaviour
         sceneLoading.Add(SceneManager.LoadSceneAsync((int)SceneEnum.Minigame, LoadSceneMode.Additive));
         StartCoroutine(GetSceneLoadProgress());
     }
+    public bool IsSceneLoaded(SceneEnum scene)
+    {
+        return SceneManager.GetSceneByBuildIndex((int)scene).isLoaded;
+    }
     
     float totalSceneProgress;
     public IEnumerator GetSceneLoadProgress()
