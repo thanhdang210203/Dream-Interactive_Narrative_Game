@@ -1,17 +1,25 @@
 using System;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class ItemInteraction : MonoBehaviour
 {
-    // The radius of the item's interaction area
-    public float interactionRadius;
-
+    public GameObject interactionUI;
+    public Camera mainCamera;
+    public Canvas canvas;
+    
+    [SerializeField] private bool isInteractable;
     private void Start()
     {
-        // Add a sphere collider to represent the item's interaction area
-        SphereCollider sphereCollider = gameObject.AddComponent<SphereCollider>();
-        sphereCollider.radius = interactionRadius;
-        sphereCollider.isTrigger = true; // This line sets the SphereCollider to isTrigger
+        mainCamera = Camera.main;
+        canvas = GetComponentInChildren<Canvas>();
+        canvas.worldCamera = mainCamera;
+        isInteractable = false;
+    }
+
+    private void Update()
+    {
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,14 +27,30 @@ public class ItemInteraction : MonoBehaviour
         // Check if the object that entered the trigger is on the player's layer
         if (other.CompareTag("Player"))
         {
-            // The player has entered the item's interaction area
+            popUpUI();
             Debug.Log("Player entered the " + this.name+"'s interaction area");
+            isInteractable = true;
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnTriggerExit(Collider other)
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, interactionRadius);
+        if (other.CompareTag("Player"))
+        {
+            // The player has exited the item's interaction area
+            closeUI();
+            Debug.Log("Player exited the " + this.name+"'s interaction area");
+            isInteractable = false;
+        }
+    }
+
+    void popUpUI()
+    {
+        interactionUI.transform.DOScale(1, 0.5f).SetEase(Ease.Linear);
+    }
+    
+    void closeUI()
+    {
+        interactionUI.transform.DOScale(0, 0.5f).SetEase(Ease.Linear);
     }
 }

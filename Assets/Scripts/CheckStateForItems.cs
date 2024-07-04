@@ -19,9 +19,9 @@ public class CheckStateForItems : ScriptableObject
     // Update is called once per frame
     void Update()
     {
-        switch (GameManger.instance.currentGameState)
+        switch (GameManager.instance.currentGameState)
         {
-            case gameState.level1:
+            case gameStates.level1:
                 for (int i = 0; i < itemsLevel1.Length; i++)
                 {
                     if (itemsLevel1[i].transform.position == itemLevel1Positions[i].position)
@@ -35,7 +35,7 @@ public class CheckStateForItems : ScriptableObject
                 }
 
                 break;
-            case gameState.level2:
+            case gameStates.level2:
                 for (int i = 0; i < itemsLevel2.Length; i++)
                 {
                     if (itemsLevel2[i].transform.position == itemLevel2Positions[i].position)
@@ -48,7 +48,7 @@ public class CheckStateForItems : ScriptableObject
                     }
                 }
                 break;
-            case gameState.level3:
+            case gameStates.level3:
                 for (int i = 0; i < itemsLevel3.Length; i++)
                 {
                     if (itemsLevel3[i].transform.position == itemLevel3Positions[i].position)

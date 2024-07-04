@@ -1,33 +1,24 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public enum gameState
+public enum gameStates
 {
     level1,
     level2,
     level3,
 }
-public class GameManger : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static GameManger instance;
-    public GameObject loadingScreen;
-    public ProgressBar bar;
-    public TextMeshProUGUI progressText;
-    public gameState currentGameState;
+    public static GameManager instance;
+    public gameStates currentGameState;
     private void Awake()
     {
         instance = this;
     }
     private void Start()
     {
-        currentGameState = gameState.level1;
+        currentGameState = gameStates.level1;
     }
-    
-    
 }
