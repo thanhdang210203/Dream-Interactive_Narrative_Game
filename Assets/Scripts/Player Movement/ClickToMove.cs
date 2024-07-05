@@ -40,6 +40,7 @@ public class ClickToMove : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 _agent.SetDestination(hit.point);
+                AudioManager.instance.PlaySoundEffect(7);
             }
         }
     }

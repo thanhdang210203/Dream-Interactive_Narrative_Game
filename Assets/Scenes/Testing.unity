@@ -1923,7 +1923,17 @@ MonoBehaviour:
   interactionUI: {fileID: 1451760597}
   mainCamera: {fileID: 0}
   canvas: {fileID: 0}
+  noteIndex: 0
   isInteractable: 0
+  interactKey:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!23 &937220481
 MeshRenderer:
   m_ObjectHideFlags: 0

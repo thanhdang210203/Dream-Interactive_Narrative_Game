@@ -9,6 +9,8 @@ public class ItemInteraction : MonoBehaviour
     public int noteIndex;
     [SerializeField] private bool isInteractable;
     public InputAction interactKey;
+    
+    public bool isPC;
     private void Start()
     {
         mainCamera = Camera.main;
@@ -32,7 +34,11 @@ public class ItemInteraction : MonoBehaviour
         interactionUI.transform.LookAt(mainCamera.transform);
         if (isInteractable)
         {
-            if (interactKey.triggered)
+            if(interactKey.triggered && isPC)
+            {
+                PCController.instance.openPC();
+            }
+            if (interactKey.triggered && !isPC)
             { 
                 noteManage.instance.openNote(noteIndex);
                 Debug.Log("Player interacted with " + this.name);
@@ -45,6 +51,7 @@ public class ItemInteraction : MonoBehaviour
         // Check if the object that entered the trigger is on the player's layer
         if (other.CompareTag("Player"))
         {
+            AudioManager.instance.PlaySoundEffect(0);
             popUpUI();
             Debug.Log("Player entered the " + this.name+"'s interaction area");
             isInteractable = true;
