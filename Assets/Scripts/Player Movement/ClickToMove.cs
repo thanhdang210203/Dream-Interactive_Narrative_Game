@@ -1,5 +1,3 @@
-using System;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -39,14 +37,12 @@ public class ClickToMove : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
-
             if (Physics.Raycast(ray, out hit))
             {
                 _agent.SetDestination(hit.point);
             }
         }
     }
-
     private void OnDrawGizmos()
     {
         if (_agent != null && _agent.hasPath)

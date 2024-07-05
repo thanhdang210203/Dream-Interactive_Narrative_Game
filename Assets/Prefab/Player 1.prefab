@@ -1480,7 +1480,7 @@ Transform:
   - {fileID: 616499116241651048}
   - {fileID: 6141736505151111280}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 6.181, z: 0}
 --- !u!95 &6931476084427993795
 Animator:
@@ -1571,7 +1571,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: fc901398-139d-41a0-a438-05f6b6febbd4
-      m_Path: <Mouse>/leftButton
+      m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 
       m_Groups: 

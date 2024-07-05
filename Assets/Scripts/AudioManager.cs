@@ -25,13 +25,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Background Music Clips")]
     public AudioClip[] backgroundMusic;
-    [SerializeField] private float crossfadeTime = 3f; // duration of the crossfade in seconds
-    private int currentTrackIndex = -1;
-    [SerializeField] private bool shouldStartCrossfade = false;
-    [SerializeField] private bool canPlayMusic;
     private void Awake()
     {
-        canPlayMusic = false;
         if (instance == null)
         {
             instance = this;
@@ -47,41 +42,6 @@ public class AudioManager : MonoBehaviour
         // set vol from save
         m_SFX.volume = PlayerPrefs.GetInt("SFXAudio", 1) == 1 ? 1 : 0;
         m_BackgroundMusic.volume = PlayerPrefs.GetInt("BackgroundMusic", 1) == 1 ? 1 : 0;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void Update()
-    {
-    }
-
-    private void OnDestroy()
-    {
-        // Unsubscribe the OnSceneLoaded method when the object is destroyed
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // If the loaded scene is the "Loading" scene, stop the music
-        if (scene.name == "Loading")
-        {
-            m_BackgroundMusic.Stop();
-        }
-        // If the loaded scene is "Menu_2", play the specific song first
-        else if (scene.name == "Menu_2")
-        {
-            // Stop the current music
-            m_BackgroundMusic.Stop();
-
-            // Set the current track index to the index of the specific song
-            currentTrackIndex = 8/* index of the specific song */;
-
-            // Play the selected track
-            m_BackgroundMusic.clip = backgroundMusic[currentTrackIndex];
-            m_BackgroundMusic.Play();
-
-            // Log the name of the current background music and the scene it is playing at
-            Debug.Log("Now playing: " + m_BackgroundMusic.clip.name + " at scene: " + SceneManager.GetActiveScene().name);
-        }
     }
     
     public void PlaySoundEffect(int index)
@@ -96,12 +56,6 @@ public class AudioManager : MonoBehaviour
         {
             Debug.Log("Invalid sound effect index: " + index);
         }
-    }
-    
-    public bool CanPlayMusic
-    {
-        get => canPlayMusic;
-        set => canPlayMusic = value;
     }
     
     public void PlayUISoundEffect(int index)

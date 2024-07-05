@@ -1,15 +1,14 @@
-using System;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.UI;
-
+using UnityEngine.InputSystem;
 public class ItemInteraction : MonoBehaviour
 {
     public GameObject interactionUI;
     public Camera mainCamera;
     public Canvas canvas;
-    
+    public int noteIndex;
     [SerializeField] private bool isInteractable;
+    public InputAction interactKey;
     private void Start()
     {
         mainCamera = Camera.main;
@@ -17,9 +16,28 @@ public class ItemInteraction : MonoBehaviour
         canvas.worldCamera = mainCamera;
         isInteractable = false;
     }
+    
+    private void OnEnable()
+    {
+        interactKey.Enable();
+    }
+
+    private void OnDisable()
+    {
+        interactKey.Disable();
+    }
 
     private void Update()
     {
+        interactionUI.transform.LookAt(mainCamera.transform);
+        if (isInteractable)
+        {
+            if (interactKey.triggered)
+            { 
+                noteManage.instance.openNote(noteIndex);
+                Debug.Log("Player interacted with " + this.name);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,11 +64,11 @@ public class ItemInteraction : MonoBehaviour
 
     void popUpUI()
     {
-        interactionUI.transform.DOScale(1, 0.5f).SetEase(Ease.Linear);
+        interactionUI.transform.DOScale(0.01f, 0.2f).SetEase(Ease.OutBounce);
     }
     
     void closeUI()
     {
-        interactionUI.transform.DOScale(0, 0.5f).SetEase(Ease.Linear);
+        interactionUI.transform.DOScale(0, 0.2f).SetEase(Ease.Linear);
     }
 }
