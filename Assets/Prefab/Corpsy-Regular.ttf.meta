@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c7b074d5f1512404db9fee8bc19e5e54
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Corpsy
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 01356d4995f0968458e8e386de18e0b2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

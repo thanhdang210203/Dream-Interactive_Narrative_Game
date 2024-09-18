@@ -9,9 +9,13 @@ public class CheckStateForItems : ScriptableObject
     public GameObject[] itemsLevel1;
     public GameObject[] itemsLevel2;
     public GameObject[] itemsLevel3;
+    public GameObject[] itemsLevel4;
+    public GameObject[] itemsLevel5;
     public Transform[] itemLevel1Positions;
     public Transform[] itemLevel2Positions;
     public Transform[] itemLevel3Positions;
+    public Transform[] itemLevel4Positions;
+    public Transform[] itemLevel5Positions;
     private void Start()
     {
     }
@@ -58,6 +62,32 @@ public class CheckStateForItems : ScriptableObject
                     else
                     {
                         Debug.Log("Item " + itemsLevel3[i].name + " is not in the correct position");
+                    }
+                }
+                break;
+            case gameStates.level4:
+                for (int i = 0; i < itemsLevel4.Length; i++)
+                {
+                    if (itemsLevel4[i].transform.position == itemLevel4Positions[i].position)
+                    {
+                        Debug.Log("Item " + itemsLevel4[i].name + " is in the correct position");
+                    }
+                    else
+                    {
+                        Debug.Log("Item " + itemsLevel4[i].name + " is not in the correct position");
+                    }
+                }
+                break;
+            case gameStates.level5:
+                for (int i = 0; i < itemsLevel5.Length; i++)
+                {
+                    if (itemsLevel5[i].transform.position == itemLevel5Positions[i].position)
+                    {
+                        Debug.Log("Item " + itemsLevel5[i].name + " is in the correct position");
+                    }
+                    else
+                    {
+                        Debug.Log("Item " + itemsLevel5[i].name + " is not in the correct position");
                     }
                 }
                 break;

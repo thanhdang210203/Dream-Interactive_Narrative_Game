@@ -85,7 +85,7 @@ public class PCController : MonoBehaviour
     public void ReadNote()
     {
         OpenDocWindow();
-        noteManage.instance.simnpleNoteOpen(index);
+        noteManage.instance.simnpleNoteOpen(6);
     }
     
     public void powerOffPC()

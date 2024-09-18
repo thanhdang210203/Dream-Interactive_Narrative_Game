@@ -18,16 +18,19 @@ public class menuControl : MonoBehaviour
     public void pressStart()
     {
         popUp.SetActive(true);
+        AudioManager.instance.PlaySoundEffect(2);
         popUp.transform.DOScale(1, 0.5f).SetEase(Ease.OutBounce);
     }
     
     public void pressExit()
     {
+        AudioManager.instance.PlaySoundEffect(1);
         Application.Quit();
     }
 
     public void confirm()
     {
-        SceneManager.LoadScene("Environment");
+        AudioManager.instance.PlaySoundEffect(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

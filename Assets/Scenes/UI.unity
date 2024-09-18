@@ -409,12 +409,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e09f01745f00d146ae8519f371760cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  index: 6
   docWindow: {fileID: 0}
   text: {fileID: 0}
   trashFile: {fileID: 0}
   fileWindow: {fileID: 0}
   textData: {fileID: 0}
+  PCCanvas: {fileID: 0}
 --- !u!1 &2076385558
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +648,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PC
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909578827240045269, guid: 796b7a6c4e0548d4d9cef9c916e6decf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1297648905}
+    - target: {fileID: 8909578827240045269, guid: 796b7a6c4e0548d4d9cef9c916e6decf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReadNote
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
