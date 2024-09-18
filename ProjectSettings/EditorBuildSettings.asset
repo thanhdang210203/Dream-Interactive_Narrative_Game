@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Denial.unity
     guid: c6c5a71e056673948ba5cd774dea61c8
+  - enabled: 1
+    path: Assets/Scenes/Anger.unity
+    guid: 144153f5788a0554f893cfd9d5daad5a
   m_configObjects: {}

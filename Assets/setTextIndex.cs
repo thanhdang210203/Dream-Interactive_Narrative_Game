@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class setTextIndex : MonoBehaviour
 {
@@ -16,10 +17,6 @@ public class setTextIndex : MonoBehaviour
     void Start()
     {
         noteManage.instance.noteText = text;
-        if (isNote)
-        {
-            button.SetActive(true);
-        }
     }
 
     public void click()
@@ -34,5 +31,14 @@ public class setTextIndex : MonoBehaviour
        AudioManager.instance.PlaySoundEffect(6);
        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
        GameManager.instance.currentGameState = gameStates.level2;
+    }
+
+    public void wakeup()
+    {
+        textWindow.SetActive(true);
+        AudioManager.instance.PlaySoundEffect(6);
+        noteManage.instance.simnpleNoteOpen(index);
+        button.SetActive(true);
+        button.transform.DOScale(1, 0.5f).SetEase(Ease.OutBounce);
     }
 }

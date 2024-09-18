@@ -6,5 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TextData", menuName = "TextData", order = 1)]
 public class TextData : ScriptableObject
 {
-   public string[] PCTexts;
+   [TextArea(10, 100)]
+   public string []PCTexts;
+   [Multiline(40)]
+   public string multilineString;
 }
