@@ -50,11 +50,6 @@ public class ItemInteraction : MonoBehaviour
                 noteManage.instance.openNote(noteIndex);
                 Debug.Log("Player interacted with " + this.name);
             }
-            if(interactKey.triggered && isDoor)
-            {
-                GameManager.instance.currentGameState = gameStates.level3;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);   
-            }
         }
     }
 

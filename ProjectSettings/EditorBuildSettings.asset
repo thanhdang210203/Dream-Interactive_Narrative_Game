@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Anger.unity
     guid: 144153f5788a0554f893cfd9d5daad5a
+  - enabled: 1
+    path: Assets/Scenes/Bargain.unity
+    guid: 063a79b369e92d8488ebaef597b661ae
+  - enabled: 1
+    path: Assets/Scenes/Depression.unity
+    guid: 638d7045b8ddcf2419e9408cc0bc3832
   m_configObjects: {}
