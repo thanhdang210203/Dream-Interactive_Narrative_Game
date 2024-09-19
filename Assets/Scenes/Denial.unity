@@ -1766,12 +1766,12 @@ PrefabInstance:
     - target: {fileID: 4884159734685591222, guid: ef88b3e91e242f44faf72e080726fa53,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.50162977
+      value: 0.5016298
       objectReference: {fileID: 0}
     - target: {fileID: 4884159734685591222, guid: ef88b3e91e242f44faf72e080726fa53,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.06806293
+      value: 0.06806294
       objectReference: {fileID: 0}
     - target: {fileID: 4884159734685591222, guid: ef88b3e91e242f44faf72e080726fa53,
         type: 3}
@@ -1781,7 +1781,7 @@ PrefabInstance:
     - target: {fileID: 4884159734685591222, guid: ef88b3e91e242f44faf72e080726fa53,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.11595116
+      value: 0.11595114
       objectReference: {fileID: 0}
     - target: {fileID: 4884159734685591222, guid: ef88b3e91e242f44faf72e080726fa53,
         type: 3}
@@ -2362,12 +2362,12 @@ PrefabInstance:
     - target: {fileID: 6109633170146428462, guid: 0fa9af730956af5469ce7a88b0514ef8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.50162977
+      value: 0.5016298
       objectReference: {fileID: 0}
     - target: {fileID: 6109633170146428462, guid: 0fa9af730956af5469ce7a88b0514ef8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.06806293
+      value: 0.06806294
       objectReference: {fileID: 0}
     - target: {fileID: 6109633170146428462, guid: 0fa9af730956af5469ce7a88b0514ef8,
         type: 3}
@@ -2377,7 +2377,7 @@ PrefabInstance:
     - target: {fileID: 6109633170146428462, guid: 0fa9af730956af5469ce7a88b0514ef8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.11595116
+      value: 0.11595114
       objectReference: {fileID: 0}
     - target: {fileID: 6109633170146428462, guid: 0fa9af730956af5469ce7a88b0514ef8,
         type: 3}
@@ -3010,8 +3010,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: jadl;kfjasd;lfkja;sdlkfjasd;flk
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6a9dc92505bea8147b25cfc6e074b90c, type: 2}
-  m_sharedMaterial: {fileID: -6010533653963667843, guid: 6a9dc92505bea8147b25cfc6e074b90c,
+  m_fontAsset: {fileID: 11400000, guid: af33da0f92d025f40bc2134870b42912, type: 2}
+  m_sharedMaterial: {fileID: 6389197461995807695, guid: af33da0f92d025f40bc2134870b42912,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4392,6 +4392,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2614663988319805160, guid: a78f64019a50c784781f9acb99cd3acc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 89c5d21ad5653f74f89f5cdb3d5b3915, type: 2}
     - target: {fileID: 2614663988319805162, guid: a78f64019a50c784781f9acb99cd3acc,
         type: 3}
       propertyPath: m_RootOrder

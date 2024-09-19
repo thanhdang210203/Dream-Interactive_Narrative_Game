@@ -1,6 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class ItemInteraction : MonoBehaviour
 {
     public GameObject interactionUI;
@@ -9,10 +11,13 @@ public class ItemInteraction : MonoBehaviour
     public int noteIndex;
     [SerializeField] private bool isInteractable;
     public InputAction interactKey;
-    
+    public TMP_FontAsset font;
+    public float noteFontSize;
+    public bool isDoor;
     public bool isPC;
     private void Start()
     {
+        noteManage.instance.noteFont = font;
         mainCamera = Camera.main;
         canvas = GetComponentInChildren<Canvas>();
         canvas.worldCamera = mainCamera;
@@ -40,8 +45,15 @@ public class ItemInteraction : MonoBehaviour
             }
             if (interactKey.triggered && !isPC)
             { 
+                noteManage.instance.ChangeFontSize(noteFontSize);
+                noteManage.instance.ChangeFont(font);
                 noteManage.instance.openNote(noteIndex);
                 Debug.Log("Player interacted with " + this.name);
+            }
+            if(interactKey.triggered && isDoor)
+            {
+                GameManager.instance.currentGameState = gameStates.level3;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);   
             }
         }
     }

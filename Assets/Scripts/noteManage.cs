@@ -15,9 +15,8 @@ public class noteManage : MonoBehaviour
     public TextMeshProUGUI noteText;
     public CanvasGroup notePageCanvas;
     public CanvasGroup noteTextCanvas;
-
     public float notePagePos;
-
+    public TMP_FontAsset noteFont;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -29,6 +28,11 @@ public class noteManage : MonoBehaviour
         noteText = note.GetComponentInChildren<TextMeshProUGUI>();
         notePageCanvas = note.GetComponent<CanvasGroup>();
         noteTextCanvas = noteText.GetComponent<CanvasGroup>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void openNote(int index)
@@ -69,5 +73,14 @@ public class noteManage : MonoBehaviour
     public void backToGame()
     {
         closeNote();
+    }
+    public void ChangeFont(TMP_FontAsset newFont)
+    {
+        noteText.font = newFont;
+    }
+    
+    public void ChangeFontSize(float newSize)
+    {
+        noteText.fontSize = newSize;
     }
 }

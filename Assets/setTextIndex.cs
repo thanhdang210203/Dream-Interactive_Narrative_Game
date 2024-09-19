@@ -13,6 +13,7 @@ public class setTextIndex : MonoBehaviour
     public TextMeshProUGUI text;
     public bool isNote;
     public GameObject button;
+    public TMP_FontAsset font;
     // Start is called before the first frame update
     void Start()
     {
