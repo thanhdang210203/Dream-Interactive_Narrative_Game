@@ -1,27 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
-public class DoorInteract : MonoBehaviour
+public class doorLasr : MonoBehaviour
 {
     public InputAction interactKey;
-    public bool isInteractable;
+        public bool isInteractable;
+        public GameObject popUp;
     // Start is called before the first frame update
     void Start()
     {
-        isInteractable = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (interactKey.triggered && isInteractable)
-        {
-            OpenDoor();
-        }
         
     }
     private void OnEnable()
@@ -33,14 +23,15 @@ public class DoorInteract : MonoBehaviour
     {
         interactKey.Disable();
     }
-    
-    public void OpenDoor()
+    // Update is called once per frame
+    void Update()
     {
-        AudioManager.instance.PlaySoundEffect(8);
-        GameManager.instance.currentGameState = gameStates.level3;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);   
+        if(interactKey.triggered && isInteractable)
+        {
+            StartCoroutine(accept());
+        }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -59,4 +50,14 @@ public class DoorInteract : MonoBehaviour
             isInteractable = false;
         }
     }
+    IEnumerator accept()
+        {
+            popUp.SetActive(true);
+            popUp.GetComponent<CanvasGroup>().DOFade(1, 3f);
+            yield return new WaitForSeconds(3f);
+            popUp.GetComponent<CanvasGroup>().DOFade(0, 1.5f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    
+    
 }

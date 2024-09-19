@@ -33,4 +33,10 @@ public class menuControl : MonoBehaviour
         AudioManager.instance.PlaySoundEffect(1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    
+    public void confirm2()
+    {
+        AudioManager.instance.PlaySoundEffect(1);
+        SceneManager.LoadScene("Denial");
+    }
 }
